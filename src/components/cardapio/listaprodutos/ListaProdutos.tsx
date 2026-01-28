@@ -1,6 +1,29 @@
+import { useEffect, useState } from "react";
 import CardProduto from "../cardcardapio/CardProduto";
+import { useNavigate } from "react-router-dom";
 
 function ListaProdutos() {
+    const navigate = useNavigate();
+
+    // const [produtos, setProdutos] = useState<Produto[]>([])
+
+    // useEffect(() => {
+    //     buscarProdutos()    
+    // }, [produtos.length])
+
+    // async function buscarProdutos() {
+    //     try {
+
+    //         // setIsLoading(true)
+
+    //         await buscar('/cardapio', setProdutos, {})
+    //     } catch (error: any) {
+    //         if (error.toString().includes('401')) {
+    //             handleLogout()
+    //         }
+    //     }
+    // }
+
     return (
         <div className="bg-gradient-to-b from-[#7A1E2D] via-[#3B2F2F] to-[#1A1A1A] min-h-screen py-20 px-8">
             <div className="max-w-7xl mx-auto">
@@ -29,9 +52,12 @@ function ListaProdutos() {
 
                 {/* Grade de Cards Robustos */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                    <CardProduto />
-                    <CardProduto />
-                    <CardProduto />
+                        <CardProduto />
+                            {/* {
+                                produtos.map((produto) => (
+                                    <CardProduto key={produto.id} produto={produto}/>
+                                ))
+                            } */}
                 </div>
             </div>
 
