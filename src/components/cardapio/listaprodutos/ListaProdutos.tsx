@@ -4,6 +4,7 @@ import CardProduto from "../cardcardapio/CardProduto";
 import type Produto from "../../../models/Produto";
 import { buscar } from "../../../services/api/Api";
 import { SyncLoader } from "react-spinners";
+import ListarCategoria from "../../categoria/listarCategoria/ListarCategoria";
 
 function ListaProdutos() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -59,9 +60,7 @@ function ListaProdutos() {
           </div>
 
           <div className="flex flex-col md:flex-row gap-6 mb-20">
-            <button className="px-10 py-4 bg-white/5 backdrop-blur-md border-2 border-[#D4AF37] text-[#D4AF37] font-bold rounded-2xl hover:bg-[#D4AF37] hover:text-[#3B2F2F] transition-all uppercase text-xs tracking-widest">
-              Filtrar Categoria
-            </button>
+            <ListarCategoria />
             
             {/* 3. Input de Busca Conectado ao Estado */}
             <input
