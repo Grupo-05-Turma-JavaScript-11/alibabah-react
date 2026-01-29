@@ -2,6 +2,7 @@ import { useEffect, useState, type ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { buscar, atualizar, cadastrar } from "../../../services/api/Api";
 import type Produto from "../../../models/Produto";
+import type Categoria from "../../../models/Categoria";
 
 
 function FormProduto() {
@@ -9,15 +10,15 @@ function FormProduto() {
     const { id } = useParams<{ id: string }>();
 
     // Estados para o Produto e para a lista de Categorias
-    // const [categorias, setCategorias] = useState<Categoria[]>([]);
-    // const [categoria, setCategoria] = useState<Categoria>({ id: 0, nome: "", descricao: "" });
+    const [categorias, setCategorias] = useState<Categoria[]>([]);
+    const [categoria, setCategoria] = useState<Categoria>({ id: 0, nome: "", descricao: "" });
      const [produto, setProduto] = useState<Produto>({
          id: 0, nome: "", preco: 0, foto: "", descricao: "", calorias: 0 , categoria: null});
 
     // 1. Busca as categorias para preencher o <select>
-    // async function buscarCategorias() {
-    //     await buscar("/categorias", setCategorias);
-    // }
+    async function buscarCategorias() {
+        await buscar("/categorias", setCategorias);
+    }
 
     // 2. Se tiver ID na URL, busca o produto para edição
     async function buscarProdutoPorId(id: string) {
@@ -29,19 +30,19 @@ function FormProduto() {
             buscarProdutoPorId(id);
         }
     }, [id]);
-    // useEffect(() => {
-    //     buscarCategorias();
-    //     if (id !== undefined) {
-    //         buscarProdutoPorId(id);
-    //     }
-    // }, [id]);
+    useEffect(() => {
+        buscarCategorias();
+        if (id !== undefined) {
+            buscarProdutoPorId(id);
+        }
+    }, [id]);
 
     // 3. Atualiza o estado do produto conforme o usuário digita
     function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
         setProduto({
             ...produto,
             [e.target.name]: e.target.value,
-            // categoria: categoria
+            categoria: categoria
         });
     }
 
@@ -98,13 +99,13 @@ function FormProduto() {
                         <label className="font-bold text-[#3B2F2F] text-sm uppercase">Categoria</label>
                         <select 
                             name="categoria" 
-                            // onChange={(e) => buscar(`/categorias/${e.currentTarget.value}`, setCategoria)}
+                            onChange={(e) => buscar(`/categorias/${e.currentTarget.value}`, setCategoria)}
                             className="border-2 border-[#F3E9DC] rounded-xl p-3 bg-white focus:border-[#D4AF37] outline-none transition-all"
                         >
                             <option value="">Selecione...</option>
-                            {/* {categorias.map((cat) => (
+                            {categorias.map((cat) => (
                                 <option key={cat.id} value={cat.id}>{cat.nome}</option>
-                            ))} */}
+                            ))}
                         </select>
                     </div>
                 </div>
