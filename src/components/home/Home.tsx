@@ -99,7 +99,7 @@ const HomeBanner: React.FC = () => {
               <div className="absolute inset-0 bg-yellow-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </Link>
             <Link
-              to="/cardapio"
+              to="/produtos"
               className="group relative px-8 sm:px-10 py-3 rounded-full bg-gradient-to-r from-yellow-600 via-orange-300 to-yellow-600 text-[#3B2F2F] font-bold shadow-xl hover:scale-105 transition-all duration-300 overflow-hidden text-sm sm:text-base"
             >
               <span className="relative z-10">Cardápio</span>
@@ -274,7 +274,7 @@ function MaisVendidos() {
                 <p className="text-gray-500 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed line-clamp-3">{item.desc}</p>
 
                 <Link
-                  to="/cardapio"
+                  to="/produtos"
                   className="group/btn relative inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-yellow-600 text-[#3B2F2F] font-bold hover:bg-[#7A1E2D] hover:text-[#F3E9DC] transition-all duration-300 transform hover:scale-105 active:scale-95 overflow-hidden text-sm sm:text-base"
                 >
                   <span className="relative z-10">Fazer Pedido</span>
