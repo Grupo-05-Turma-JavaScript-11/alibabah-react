@@ -15,13 +15,17 @@ function ListaProdutos() {
   async function buscarProdutos() {
     try {
       setIsLoading(true);
-      await buscar("/cardapio", setProdutos);
+      // Verifique se o resultado precisa ser acessado via .data ou algo similar
+      await buscar("/cardapio", (res: any) => {
+          // Se a resposta for um objeto com uma lista dentro, use: res.data
+          // Se for a lista direta, use: res
+          setProdutos(Array.isArray(res) ? res : res.data || []);
+      });
     } catch (error: any) {
+      setProdutos([]); // Garante que continue sendo um array em caso de erro
       console.error("Erro na busca:", error);
-
-      if (error.response?.status === 404) {
-        console.log("Cardápio não encontrado!");
-      }
+    } finally {
+      setIsLoading(false);
     }
   }
 
