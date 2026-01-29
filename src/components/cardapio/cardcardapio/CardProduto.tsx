@@ -19,14 +19,14 @@ function CardProduto({ produto }: CardProdutoProps) {
     return (
       <div className="group relative w-full h-[450px] bg-[#3B2F2F] rounded-[2rem] overflow-hidden shadow-2xl border-2 border-[#D4AF37]/20 transition-all hover:border-[#D4AF37]">
         <img
-          src={produto.foto} // Dinâmico da API
+          src={produto.foto}
           className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
           alt={produto.nome}
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#3B2F2F] via-[#3B2F2F]/20 to-transparent p-8 flex flex-col justify-end">
           <h3 className="text-[#F3E9DC] font-black text-3xl mb-4 tracking-tighter uppercase">
-            {produto.nome} {/* Dinâmico da API */}
+            {produto.nome}
           </h3>
           <button
             onClick={() => setExpandido(true)}
