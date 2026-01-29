@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import type Produto from '../../../models/Produto';
 
-// interface CardProdutoProps {
-//     produto: Produto
-// }
+interface CardProdutoProps {
+    produto: Produto
+}
 
-function CardProduto() {
+function CardProduto({produto}: CardProdutoProps) {
     const [expandido, setExpandido] = useState(false);
 
     if (!expandido) {
@@ -34,41 +35,41 @@ function CardProduto() {
             
             {/* Imagem em Destaque */}
             <div className="lg:w-1/2 h-80 lg:h-auto relative">
-                {/* <img src={produto.foto} 
+                <img src={produto.foto} 
                     className="w-full h-full object-cover" 
                     alt={produto.nome} />
-                    <h3 className='text-lg font-bold text-center uppercase'>{produto.nome}</h3> */}
+                    <h3 className='text-lg font-bold text-center uppercase'>{produto.nome}</h3>
                 <div className="absolute top-6 left-6 flex gap-3">
-                    {/* <Link to={`/editarProduto/${produto.id}`} className="px-6 py-2 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:scale-105 transition-transform">
+                    <Link to={`/editarProduto/${produto.id}`} className="px-6 py-2 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:scale-105 transition-transform">
                         <button>EDITAR</button>
                     </Link>
 
                     <Link to={`/deletarProduto/${produto.id}`} className="px-6 py-2 bg-red-600 text-white font-bold rounded-full shadow-lg hover:scale-105 transition-transform">
                         <button>EXCLUIR</button>
-                    </Link> */}
+                    </Link>
                 </div>
             </div>
 
-                {/* <div className='p-4'>
+                <div className='p-4'>
+                    <p>Nome: {produto.nome}</p>
                     <p>{produto.descricao}</p>
-                    <p>Laboratório: {produto.laboratorio}</p>
                     <p>Preço: {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.preco)}</p>
-                    <p>Estoque: {produto.quantidade}</p>
                     <p>Categoria: {produto.categoria?.nome}</p>
-                </div> */}
+                </div>
+
             {/* Conteúdo Detalhado */}
             <div className="lg:w-1/2 p-12 flex flex-col justify-between bg-white">
                 <div className="relative">
                     <button onClick={() => setExpandido(false)} className="absolute -top-4 -right-4 text-5xl text-[#7A1E2D] font-light">&times;</button>
                     <span className="text-[#D4AF37] font-bold tracking-[0.3em] uppercase text-xs">Sugestão do Chef</span>
-                    <h2 className="text-5xl font-black text-[#7A1E2D] my-4 leading-none">{/*produto.nome*/}</h2>
+                    <h2 className="text-5xl font-black text-[#7A1E2D] my-4 leading-none">{produto.nome}</h2>
                     <p className="text-[#3B2F2F] text-xl leading-relaxed italic border-l-4 border-[#D4AF37] pl-6 my-8">
-                        {/*produto.descricao*/}
+                        {produto.descricao}
                     </p>
                 </div>
 
                 <div className="flex items-center justify-between mt-8 border-t-2 border-[#F3E9DC] pt-8">
-                    <div className="text-4xl font-black text-[#3B2F2F]">{/*produto.preco*/}</div>
+                    <div className="text-4xl font-black text-[#3B2F2F]">{produto.preco}</div>
                     <button className="efeito-shine px-12 py-5 bg-gradient-to-r from-[#D4AF37] via-[#FFCB9A] to-[#D4AF37] text-[#3B2F2F] font-black rounded-2xl shadow-xl hover:brightness-110 transition-all uppercase tracking-widest text-lg">
                         ADICIONAR AO CARRINHO
                     </button>
