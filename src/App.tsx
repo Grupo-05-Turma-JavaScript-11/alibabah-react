@@ -1,15 +1,19 @@
 
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import FormProduto from './components/cardapio/formproduto/FormProduto'
 import DeletarProduto from './components/cardapio/deletarproduto/DeletarProduto'
 import ListaProdutos from './components/cardapio/listaprodutos/ListaProdutos'
+import Navbar from './components/layout/navbar/Navbar'
+import Footer from './components/layout/Footer'
+
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
-					<Routes>
+          <Navbar/>
+          <Routes>
             <Route path="/produtos" element={<ListaProdutos />} />
 						<Route path="/cadastrarProduto" element={<FormProduto />} />
 						<Route path="/editarProduto/:id" element={<FormProduto />} />
@@ -19,9 +23,10 @@ function App() {
             <Route path="/produtos/editarCategoria/:id" element={<FormCategoria />} />
             <Route path="/produtos/deletarCategoria/:id" element={<DeletarCategoria />} /> */}
 					</Routes>
+          <Footer/>
       </BrowserRouter>
     </>
   )
 }
 
-export default App
+export default App;
