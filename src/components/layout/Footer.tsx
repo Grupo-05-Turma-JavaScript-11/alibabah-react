@@ -107,7 +107,7 @@ export function Footer() {
                             
                             <span className="text-white/20">|</span>
                             
-                            <Link to="/cardapio" className="hover:text-white transition-colors">Produtos</Link>
+                            <Link to="/produtos" className="hover:text-white transition-colors">Produtos</Link>
                             
                             <span className="text-white/20">|</span>
 

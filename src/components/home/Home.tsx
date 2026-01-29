@@ -308,13 +308,11 @@ export function Home() {
   }
 
   return (
-    <>
-    <main className="bg-[#F3E9DC]">
+    <main>
       <HomeBanner />
       <BannerRecomendacoes />
       <MaisVendidos />
     </main>
-    </>
   );
 }
 

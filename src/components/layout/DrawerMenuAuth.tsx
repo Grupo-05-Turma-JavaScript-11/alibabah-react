@@ -80,7 +80,7 @@ export default function DrawerMenuAuth({
                         </Link>
 
                         <Link
-                            to="/cardapio"
+                            to="/produtos"
                             className="flex items-center gap-3 px-3 py-3 rounded-md font-semibold hover:bg-black/5 cursor-pointer"
                             onClick={onClose}
                         >
@@ -100,7 +100,7 @@ export default function DrawerMenuAuth({
                 ) : (
                     <>
                         <Link
-                            to="/cardapio"
+                            to="/produtos"
                             className="flex items-center gap-3 px-3 py-3 rounded-md font-semibold hover:bg-black/5 cursor-pointer"
                             onClick={onClose}
                         >

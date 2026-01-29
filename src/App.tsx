@@ -5,9 +5,9 @@ import DeletarProduto from './components/cardapio/deletarproduto/DeletarProduto'
 import ListaProdutos from './components/cardapio/listaprodutos/ListaProdutos'
 import Navbar from './components/layout/navbar/Navbar'
 import Footer from './components/layout/Footer'
-import { Home } from 'lucide-react'
 import ListarCategoria from './components/categoria/listarCategoria/ListarCategoria'
 import FormCategoria from './components/categoria/formCategoria/FormCategoria'
+import Home from './components/home/Home'
 // import DeletarCategoria from './components/categoria/deletarCategoria/DeletarCategoria'
 
 
@@ -27,7 +27,6 @@ function App() {
             <Route path="/produtos/categorias" element={<ListarCategoria />} />
             <Route path="/produtos/cadastrarCategoria" element={<FormCategoria />} />
             <Route path="/produtos/editarCategoria/:id" element={<FormCategoria />} />
-            {/* <Route path="/produtos/deletarCategoria/:id" element={<DeletarCategoria aoDeletar={() => {}} id={""}} /> */}
 					</Routes>
           <Footer/>
       </BrowserRouter>
