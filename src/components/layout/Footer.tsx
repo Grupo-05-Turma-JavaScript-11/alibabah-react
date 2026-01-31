@@ -4,7 +4,7 @@ import { GithubLogoIcon } from "@phosphor-icons/react";
 
 export function Footer() {
     return (
-        <footer className="mt-4 bg-[#741E2D] text-white">
+        <footer className=" bg-[#741E2D] text-white">
             {/* Linha de Gradiente Estilizada */}
             <div className="h-2 w-full bg-gradient-to-r from-[#741E2D] via-[#D4AF37] to-[#741E2D]" />
             
