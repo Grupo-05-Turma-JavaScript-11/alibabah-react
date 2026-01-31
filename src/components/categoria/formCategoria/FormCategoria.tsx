@@ -1,6 +1,6 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import type Categoria from "../../../models/Categoria";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { atualizar, buscar, cadastrar } from "../../../services/api/Api";
 
 function FormCategoria() {
@@ -38,7 +38,7 @@ function FormCategoria() {
   }
 
     function retornar() {
-      navigate("/categorias");
+      navigate("/produtos");
     }
 
   async function gerarNovoTema(e: FormEvent<HTMLFormElement>) {
@@ -153,6 +153,7 @@ function FormCategoria() {
             >
               Cancelar e Voltar
             </button>
+
           </div>
         </form>
       </div>
